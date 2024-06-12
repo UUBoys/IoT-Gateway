@@ -1,0 +1,731 @@
+[
+    {
+        "id": "d740551e189da6a9",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9ab484eb87b8a27a",
+        "type": "group",
+        "z": "d740551e189da6a9",
+        "name": "Report soil moisture group",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "8ac4512c0dafae3e",
+            "c7d5e34ab89b856f",
+            "417cc35c5b5edbb0",
+            "266cf6f9e7c7050f",
+            "23017ef613baf248",
+            "90cc3ffe46714d71",
+            "ce4197b6d836b33a",
+            "ecc261eb45f9358f",
+            "e20039e428a7b05f"
+        ],
+        "x": 54,
+        "y": 299,
+        "w": 1092,
+        "h": 242
+    },
+    {
+        "id": "53e49670757f2ab3",
+        "type": "group",
+        "z": "d740551e189da6a9",
+        "name": "Pair group",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "d1105c75bdfeb541",
+            "c754b4abee69819d",
+            "51bccce9ce59e0ee",
+            "1807a75c3f0fa13c",
+            "5ec99ac8d33e4394",
+            "d129c7b506502b1b",
+            "ba21a8e492d2c985",
+            "6d22aa3cf548b0c0",
+            "b9c6d1331d85e0d0",
+            "f4f529c7dd0f7dc7",
+            "51a4e76920b611e0",
+            "6e92c224f5a7d0d7"
+        ],
+        "x": 34,
+        "y": 19,
+        "w": 1292,
+        "h": 242
+    },
+    {
+        "id": "c1841b9fe3d55fa5",
+        "type": "group",
+        "z": "d740551e189da6a9",
+        "name": "Do server tasks",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "1e84189ce1c84a42",
+            "c297bbdf4972da2d",
+            "55dac7c4200fbbd4",
+            "21379252283e0685",
+            "20b11c40d3cbad17",
+            "6a2e907d94b10a72",
+            "014bfb5245b0cdbd"
+        ],
+        "x": 54,
+        "y": 559,
+        "w": 932,
+        "h": 162
+    },
+    {
+        "id": "d1105c75bdfeb541",
+        "type": "inject",
+        "z": "d740551e189da6a9",
+        "g": "53e49670757f2ab3",
+        "name": "Start-up",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"deviceID\":\"09G1956\",\"messageType\":\"init\"}",
+        "payloadType": "json",
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "6d22aa3cf548b0c0"
+            ]
+        ]
+    },
+    {
+        "id": "c754b4abee69819d",
+        "type": "http request",
+        "z": "d740551e189da6a9",
+        "g": "53e49670757f2ab3",
+        "name": "get device",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 350,
+        "y": 140,
+        "wires": [
+            [
+                "51bccce9ce59e0ee"
+            ]
+        ]
+    },
+    {
+        "id": "51bccce9ce59e0ee",
+        "type": "switch",
+        "z": "d740551e189da6a9",
+        "g": "53e49670757f2ab3",
+        "name": "Check Paired",
+        "property": "payload.isPaired",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 360,
+        "y": 80,
+        "wires": [
+            [
+                "6e92c224f5a7d0d7"
+            ],
+            [
+                "b9c6d1331d85e0d0"
+            ]
+        ]
+    },
+    {
+        "id": "1807a75c3f0fa13c",
+        "type": "http request",
+        "z": "d740551e189da6a9",
+        "g": "53e49670757f2ab3",
+        "name": "Try to pair the device",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 660,
+        "y": 140,
+        "wires": [
+            [
+                "5ec99ac8d33e4394",
+                "51a4e76920b611e0"
+            ]
+        ]
+    },
+    {
+        "id": "5ec99ac8d33e4394",
+        "type": "switch",
+        "z": "d740551e189da6a9",
+        "g": "53e49670757f2ab3",
+        "name": "paired successfully",
+        "property": "payload.success",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 930,
+        "y": 140,
+        "wires": [
+            [
+                "6e92c224f5a7d0d7"
+            ],
+            [
+                "d129c7b506502b1b"
+            ]
+        ]
+    },
+    {
+        "id": "d129c7b506502b1b",
+        "type": "delay",
+        "z": "d740551e189da6a9",
+        "g": "53e49670757f2ab3",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1240,
+        "y": 180,
+        "wires": [
+            [
+                "1807a75c3f0fa13c"
+            ]
+        ]
+    },
+    {
+        "id": "8ac4512c0dafae3e",
+        "type": "json",
+        "z": "d740551e189da6a9",
+        "g": "9ab484eb87b8a27a",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": true,
+        "x": 510,
+        "y": 400,
+        "wires": [
+            [
+                "c7d5e34ab89b856f"
+            ]
+        ]
+    },
+    {
+        "id": "c7d5e34ab89b856f",
+        "type": "switch",
+        "z": "d740551e189da6a9",
+        "g": "9ab484eb87b8a27a",
+        "name": "forward message",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "messageType = \"moistureProcentage\"",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 710,
+        "y": 400,
+        "wires": [
+            [
+                "417cc35c5b5edbb0"
+            ]
+        ]
+    },
+    {
+        "id": "417cc35c5b5edbb0",
+        "type": "function",
+        "z": "d740551e189da6a9",
+        "g": "9ab484eb87b8a27a",
+        "name": "aggregate moisture procentage",
+        "func": "const {value} = msg?.payload;\n\nif(!value)\n    return null\n\nconst percentages = flow.get('moisturePercentages') || [];\npercentages.push(value);\nflow.set('moisturePercentages', percentages);         \n\nreturn null;                              \n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "266cf6f9e7c7050f",
+        "type": "inject",
+        "z": "d740551e189da6a9",
+        "g": "9ab484eb87b8a27a",
+        "name": "inject every hour",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 270,
+        "y": 500,
+        "wires": [
+            [
+                "23017ef613baf248"
+            ]
+        ]
+    },
+    {
+        "id": "23017ef613baf248",
+        "type": "function",
+        "z": "d740551e189da6a9",
+        "g": "9ab484eb87b8a27a",
+        "name": "calculate average moisture procentage",
+        "func": "const percentages = global.get(\"moisturePercentages\") || [];\n\nif(percentages.length == 0)\n    return null;\n\nconst sum = percentages.reduce((acc, cur) => acc + cur, 0); \nconst average = sum / percentages.length;                   \nflow.set('percentages', []);                               \nmsg.payload = {\n    \"type\": \"moisturePercentages\", \n    \"value\": average,\n    \"timeStamp\" : new Date().toISOString()\n};                  \n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 500,
+        "wires": [
+            [
+                "90cc3ffe46714d71"
+            ]
+        ]
+    },
+    {
+        "id": "90cc3ffe46714d71",
+        "type": "http request",
+        "z": "d740551e189da6a9",
+        "g": "9ab484eb87b8a27a",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "body",
+        "url": "our-server.com/api/v1/device/785421/report",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 810,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ce4197b6d836b33a",
+        "type": "comment",
+        "z": "d740551e189da6a9",
+        "g": "9ab484eb87b8a27a",
+        "name": "Report average moisture procentage every hour",
+        "info": "",
+        "x": 340,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "1e84189ce1c84a42",
+        "type": "inject",
+        "z": "d740551e189da6a9",
+        "g": "c1841b9fe3d55fa5",
+        "name": "inject every hour",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 600,
+        "wires": [
+            [
+                "c297bbdf4972da2d"
+            ]
+        ]
+    },
+    {
+        "id": "ecc261eb45f9358f",
+        "type": "switch",
+        "z": "d740551e189da6a9",
+        "g": "9ab484eb87b8a27a",
+        "name": "",
+        "property": "paired",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 350,
+        "y": 400,
+        "wires": [
+            [],
+            [
+                "8ac4512c0dafae3e"
+            ]
+        ]
+    },
+    {
+        "id": "c297bbdf4972da2d",
+        "type": "switch",
+        "z": "d740551e189da6a9",
+        "g": "c1841b9fe3d55fa5",
+        "name": "",
+        "property": "paired",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 600,
+        "wires": [
+            [
+                "55dac7c4200fbbd4"
+            ]
+        ]
+    },
+    {
+        "id": "55dac7c4200fbbd4",
+        "type": "http request",
+        "z": "d740551e189da6a9",
+        "g": "c1841b9fe3d55fa5",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "our-server.com/api/v1/device/785421/tasks",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 570,
+        "y": 600,
+        "wires": [
+            [
+                "20b11c40d3cbad17"
+            ]
+        ]
+    },
+    {
+        "id": "21379252283e0685",
+        "type": "function",
+        "z": "d740551e189da6a9",
+        "g": "c1841b9fe3d55fa5",
+        "name": "function 2",
+        "func": "const tasks = msg.payload?.tasks || []\n\nflow.set(\"tasks\", tasks)\n\nif(tasks.length > 0)\n    msg.payload = tasks[0];\n\nreturn msg; ",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 600,
+        "wires": [
+            [
+                "6a2e907d94b10a72"
+            ]
+        ]
+    },
+    {
+        "id": "20b11c40d3cbad17",
+        "type": "json",
+        "z": "d740551e189da6a9",
+        "g": "c1841b9fe3d55fa5",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 750,
+        "y": 600,
+        "wires": [
+            [
+                "21379252283e0685"
+            ]
+        ]
+    },
+    {
+        "id": "6a2e907d94b10a72",
+        "type": "switch",
+        "z": "d740551e189da6a9",
+        "g": "c1841b9fe3d55fa5",
+        "name": "parse payload",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "name = \"waterPlant\"",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 180,
+        "y": 680,
+        "wires": [
+            [
+                "014bfb5245b0cdbd"
+            ]
+        ]
+    },
+    {
+        "id": "014bfb5245b0cdbd",
+        "type": "serial request",
+        "z": "d740551e189da6a9",
+        "g": "c1841b9fe3d55fa5",
+        "name": "",
+        "serial": "4aebed7fa574b00d",
+        "x": 390,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ba21a8e492d2c985",
+        "type": "function",
+        "z": "d740551e189da6a9",
+        "g": "53e49670757f2ab3",
+        "name": "Parse Init message",
+        "func": "const deviceID = msg.payload.deviceID;\n\nglobal.set(\"deviceID\", deviceID);\n\nmsg.url = `https://potfriend-cloud.azurewebsites.net/devices/${deviceID}`;\nmsg.payload = \"\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 200,
+        "wires": [
+            [
+                "c754b4abee69819d"
+            ]
+        ]
+    },
+    {
+        "id": "6d22aa3cf548b0c0",
+        "type": "json",
+        "z": "d740551e189da6a9",
+        "g": "53e49670757f2ab3",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "ba21a8e492d2c985"
+            ]
+        ]
+    },
+    {
+        "id": "b9c6d1331d85e0d0",
+        "type": "function",
+        "z": "d740551e189da6a9",
+        "g": "53e49670757f2ab3",
+        "name": "Prepare pair URL",
+        "func": "const deviceID = global.get(\"deviceID\");\n\nmsg.url = `https://potfriend-cloud.azurewebsites.net/devices/${deviceID}/pair`;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 200,
+        "wires": [
+            [
+                "1807a75c3f0fa13c"
+            ]
+        ]
+    },
+    {
+        "id": "e20039e428a7b05f",
+        "type": "serial in",
+        "z": "d740551e189da6a9",
+        "d": true,
+        "g": "9ab484eb87b8a27a",
+        "name": "IN",
+        "serial": "4aebed7fa574b00d",
+        "x": 130,
+        "y": 400,
+        "wires": [
+            [
+                "ecc261eb45f9358f"
+            ]
+        ]
+    },
+    {
+        "id": "f4f529c7dd0f7dc7",
+        "type": "debug",
+        "z": "d740551e189da6a9",
+        "g": "53e49670757f2ab3",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "51a4e76920b611e0",
+        "type": "debug",
+        "z": "d740551e189da6a9",
+        "g": "53e49670757f2ab3",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "6e92c224f5a7d0d7",
+        "type": "function",
+        "z": "d740551e189da6a9",
+        "g": "53e49670757f2ab3",
+        "name": "Handle set paired",
+        "func": "const newPairedDevice = msg.payload;\n\nconsole.log(newPairedDevice)\n\nconst pairedDevcies = global.get(\"pairedDevices\") ?? [];\n\npairedDevcies.push({\n    device_id: newPairedDevice.device_id,\n    token: newPairedDevice.token\n})\n\nglobal.set(\"pairedDevices\", pairedDevcies)\n\nconsole.log(pairedDevcies);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 60,
+        "wires": [
+            [
+                "f4f529c7dd0f7dc7"
+            ]
+        ]
+    },
+    {
+        "id": "4aebed7fa574b00d",
+        "type": "serial-port",
+        "name": "Hardwario",
+        "serialport": "/dev/tty.usbserial-130",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    }
+]
