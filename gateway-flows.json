@@ -1,6 +1,6 @@
 [
     {
-        "id": "d740551e189da6a9",
+        "id": "f91b44df1f91c91f",
         "type": "tab",
         "label": "Flow 2",
         "disabled": false,
@@ -8,72 +8,74 @@
         "env": []
     },
     {
-        "id": "9ab484eb87b8a27a",
+        "id": "4b0f4470b4d73f44",
         "type": "group",
-        "z": "d740551e189da6a9",
+        "z": "f91b44df1f91c91f",
         "name": "Report soil moisture group",
         "style": {
             "label": true
         },
         "nodes": [
-            "8ac4512c0dafae3e",
-            "c7d5e34ab89b856f",
-            "417cc35c5b5edbb0",
-            "266cf6f9e7c7050f",
-            "23017ef613baf248",
-            "90cc3ffe46714d71",
-            "ce4197b6d836b33a",
-            "ecc261eb45f9358f",
-            "e20039e428a7b05f"
+            "cd6cb4f9d29b8e80",
+            "ebc6a40358fe234c",
+            "54395557d12229de",
+            "202c8fb86292de3d",
+            "1b81ba1b185d7620",
+            "a4cd7baee907e2dd",
+            "f3b598a5e0fb466f",
+            "f1a0749154ad4322",
+            "aaf14de934eb9ece",
+            "ae37b45ed5f72113"
         ],
         "x": 54,
         "y": 299,
-        "w": 1092,
+        "w": 1192,
         "h": 242
     },
     {
-        "id": "53e49670757f2ab3",
+        "id": "9344ba63619b3c33",
         "type": "group",
-        "z": "d740551e189da6a9",
+        "z": "f91b44df1f91c91f",
         "name": "Pair group",
         "style": {
             "label": true
         },
         "nodes": [
-            "d1105c75bdfeb541",
-            "c754b4abee69819d",
-            "51bccce9ce59e0ee",
-            "1807a75c3f0fa13c",
-            "5ec99ac8d33e4394",
-            "d129c7b506502b1b",
-            "ba21a8e492d2c985",
-            "6d22aa3cf548b0c0",
-            "b9c6d1331d85e0d0",
-            "f4f529c7dd0f7dc7",
-            "51a4e76920b611e0",
-            "6e92c224f5a7d0d7"
+            "1e72356b85aa1e29",
+            "f85695bcf86d9c61",
+            "e55a3f566dbc229f",
+            "dc0a6be2bf57fb1e",
+            "d61da5b81aae134e",
+            "9d31bb5b7a0c073c",
+            "e596a3b9ade0f5a7",
+            "5ff7059934ce5ca9",
+            "dcd990d19e1f7917",
+            "b3eb380118ebd413",
+            "8ef6f2e598ce6935",
+            "df5cfd968fed5abf",
+            "aa6c62498fbc8d0f"
         ],
         "x": 34,
         "y": 19,
-        "w": 1292,
-        "h": 242
+        "w": 1312,
+        "h": 262
     },
     {
-        "id": "c1841b9fe3d55fa5",
+        "id": "5e84fe58b7253d78",
         "type": "group",
-        "z": "d740551e189da6a9",
+        "z": "f91b44df1f91c91f",
         "name": "Do server tasks",
         "style": {
             "label": true
         },
         "nodes": [
-            "1e84189ce1c84a42",
-            "c297bbdf4972da2d",
-            "55dac7c4200fbbd4",
-            "21379252283e0685",
-            "20b11c40d3cbad17",
-            "6a2e907d94b10a72",
-            "014bfb5245b0cdbd"
+            "36b972178810cc08",
+            "f4093cde46dad3ea",
+            "8e9f9762c7e8fb29",
+            "e13ccc0703f0efd1",
+            "6fe6ec2c0ac23a97",
+            "ba694833ea5ff62d",
+            "505c812762911485"
         ],
         "x": 54,
         "y": 559,
@@ -81,10 +83,30 @@
         "h": 162
     },
     {
-        "id": "d1105c75bdfeb541",
+        "id": "4aebed7fa574b00d",
+        "type": "serial-port",
+        "name": "Hardwario",
+        "serialport": "/dev/tty.usbserial-110",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "\\r",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "1e72356b85aa1e29",
         "type": "inject",
-        "z": "d740551e189da6a9",
-        "g": "53e49670757f2ab3",
+        "z": "f91b44df1f91c91f",
+        "g": "9344ba63619b3c33",
         "name": "Start-up",
         "props": [
             {
@@ -103,18 +125,16 @@
         "payload": "{\"deviceID\":\"09G1956\",\"messageType\":\"init\"}",
         "payloadType": "json",
         "x": 140,
-        "y": 140,
+        "y": 60,
         "wires": [
-            [
-                "6d22aa3cf548b0c0"
-            ]
+            []
         ]
     },
     {
-        "id": "c754b4abee69819d",
+        "id": "f85695bcf86d9c61",
         "type": "http request",
-        "z": "d740551e189da6a9",
-        "g": "53e49670757f2ab3",
+        "z": "f91b44df1f91c91f",
+        "g": "9344ba63619b3c33",
         "name": "get device",
         "method": "GET",
         "ret": "obj",
@@ -127,19 +147,19 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 350,
-        "y": 140,
+        "x": 370,
+        "y": 120,
         "wires": [
             [
-                "51bccce9ce59e0ee"
+                "e55a3f566dbc229f"
             ]
         ]
     },
     {
-        "id": "51bccce9ce59e0ee",
+        "id": "e55a3f566dbc229f",
         "type": "switch",
-        "z": "d740551e189da6a9",
-        "g": "53e49670757f2ab3",
+        "z": "f91b44df1f91c91f",
+        "g": "9344ba63619b3c33",
         "name": "Check Paired",
         "property": "payload.isPaired",
         "propertyType": "msg",
@@ -154,22 +174,22 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 360,
-        "y": 80,
+        "x": 380,
+        "y": 60,
         "wires": [
             [
-                "6e92c224f5a7d0d7"
+                "b3eb380118ebd413"
             ],
             [
-                "b9c6d1331d85e0d0"
+                "dcd990d19e1f7917"
             ]
         ]
     },
     {
-        "id": "1807a75c3f0fa13c",
+        "id": "dc0a6be2bf57fb1e",
         "type": "http request",
-        "z": "d740551e189da6a9",
-        "g": "53e49670757f2ab3",
+        "z": "f91b44df1f91c91f",
+        "g": "9344ba63619b3c33",
         "name": "Try to pair the device",
         "method": "POST",
         "ret": "obj",
@@ -182,20 +202,19 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 660,
-        "y": 140,
+        "x": 680,
+        "y": 100,
         "wires": [
             [
-                "5ec99ac8d33e4394",
-                "51a4e76920b611e0"
+                "d61da5b81aae134e"
             ]
         ]
     },
     {
-        "id": "5ec99ac8d33e4394",
+        "id": "d61da5b81aae134e",
         "type": "switch",
-        "z": "d740551e189da6a9",
-        "g": "53e49670757f2ab3",
+        "z": "f91b44df1f91c91f",
+        "g": "9344ba63619b3c33",
         "name": "paired successfully",
         "property": "payload.success",
         "propertyType": "msg",
@@ -210,22 +229,22 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 930,
+        "x": 950,
         "y": 140,
         "wires": [
             [
-                "6e92c224f5a7d0d7"
+                "b3eb380118ebd413"
             ],
             [
-                "d129c7b506502b1b"
+                "9d31bb5b7a0c073c"
             ]
         ]
     },
     {
-        "id": "d129c7b506502b1b",
+        "id": "9d31bb5b7a0c073c",
         "type": "delay",
-        "z": "d740551e189da6a9",
-        "g": "53e49670757f2ab3",
+        "z": "f91b44df1f91c91f",
+        "g": "9344ba63619b3c33",
         "name": "",
         "pauseType": "delay",
         "timeout": "5",
@@ -239,81 +258,55 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1240,
+        "x": 1260,
         "y": 180,
         "wires": [
             [
-                "1807a75c3f0fa13c"
+                "dc0a6be2bf57fb1e"
             ]
         ]
     },
     {
-        "id": "8ac4512c0dafae3e",
+        "id": "cd6cb4f9d29b8e80",
         "type": "json",
-        "z": "d740551e189da6a9",
-        "g": "9ab484eb87b8a27a",
+        "z": "f91b44df1f91c91f",
+        "g": "4b0f4470b4d73f44",
         "name": "",
         "property": "payload",
         "action": "obj",
         "pretty": true,
-        "x": 510,
+        "x": 490,
         "y": 400,
         "wires": [
             [
-                "c7d5e34ab89b856f"
+                "ebc6a40358fe234c"
             ]
         ]
     },
     {
-        "id": "c7d5e34ab89b856f",
-        "type": "switch",
-        "z": "d740551e189da6a9",
-        "g": "9ab484eb87b8a27a",
-        "name": "forward message",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "messageType = \"moistureProcentage\"",
-                "vt": "jsonata"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 710,
-        "y": 400,
-        "wires": [
-            [
-                "417cc35c5b5edbb0"
-            ]
-        ]
-    },
-    {
-        "id": "417cc35c5b5edbb0",
+        "id": "ebc6a40358fe234c",
         "type": "function",
-        "z": "d740551e189da6a9",
-        "g": "9ab484eb87b8a27a",
+        "z": "f91b44df1f91c91f",
+        "g": "4b0f4470b4d73f44",
         "name": "aggregate moisture procentage",
-        "func": "const {value} = msg?.payload;\n\nif(!value)\n    return null\n\nconst percentages = flow.get('moisturePercentages') || [];\npercentages.push(value);\nflow.set('moisturePercentages', percentages);         \n\nreturn null;                              \n",
+        "func": "const {deviceID, value, messageType} = msg?.payload;\n\nif(!value || messageType != \"moistureProcentage\")\n    return null\nconst devices = global.get('Devices') || [];\n\nconst device = devices.find((device) => device.id === deviceID);\n\nif (device){\n    device.reports.push({\n        type: \"moisture\",\n        value\n    });\n\n    global.set('Devices', devices)  \n}       \nconsole.log(devices);\nreturn null;                              \n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 990,
+        "x": 730,
         "y": 400,
         "wires": [
             []
         ]
     },
     {
-        "id": "266cf6f9e7c7050f",
+        "id": "54395557d12229de",
         "type": "inject",
-        "z": "d740551e189da6a9",
-        "g": "9ab484eb87b8a27a",
+        "z": "f91b44df1f91c91f",
+        "g": "4b0f4470b4d73f44",
         "name": "inject every hour",
         "props": [
             {
@@ -324,52 +317,52 @@
                 "vt": "str"
             }
         ],
-        "repeat": "3600",
+        "repeat": "300",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 270,
+        "x": 190,
         "y": 500,
         "wires": [
             [
-                "23017ef613baf248"
+                "202c8fb86292de3d"
             ]
         ]
     },
     {
-        "id": "23017ef613baf248",
+        "id": "202c8fb86292de3d",
         "type": "function",
-        "z": "d740551e189da6a9",
-        "g": "9ab484eb87b8a27a",
+        "z": "f91b44df1f91c91f",
+        "g": "4b0f4470b4d73f44",
         "name": "calculate average moisture procentage",
-        "func": "const percentages = global.get(\"moisturePercentages\") || [];\n\nif(percentages.length == 0)\n    return null;\n\nconst sum = percentages.reduce((acc, cur) => acc + cur, 0); \nconst average = sum / percentages.length;                   \nflow.set('percentages', []);                               \nmsg.payload = {\n    \"type\": \"moisturePercentages\", \n    \"value\": average,\n    \"timeStamp\" : new Date().toISOString()\n};                  \n\nreturn msg;",
+        "func": "const devices = global.get(\"Devices\") || [];\n\nif(devices.length == 0)\n    return null;\n\nconst newMessages = devices.map(device => {\n    const reports = device.reports ?? [];\n\n    const moistureReports = reports.filter((report) => report.type == \"moisture\");\n\n    if (moistureReports.length === 0) {\n        return null;\n    }\n\n    const sum = moistureReports.reduce((acc, cur) => acc + cur.value, 0);\n    console.log(sum);\n    const average = sum / moistureReports.length;\n    console.log(average);\n\n    device.reports = [];\n\n    const payload = {\n        deviceID: device.id,\n        type: \"moisturePercentages\",\n        value: average,\n        timeStamp: new Date().toISOString()\n    };\n\n    return { payload: payload };\n});\n\nglobal.set(\"Devices\", devices) || [];\n\n\nmsg.payload = newMessages.filter(msg => msg !== null);\nflow.set(\"allMessagesSent\", false);\nflow.set(\"messagesToSend\", msg.payload);\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
+        "x": 470,
         "y": 500,
         "wires": [
             [
-                "90cc3ffe46714d71"
+                "aaf14de934eb9ece"
             ]
         ]
     },
     {
-        "id": "90cc3ffe46714d71",
+        "id": "1b81ba1b185d7620",
         "type": "http request",
-        "z": "d740551e189da6a9",
-        "g": "9ab484eb87b8a27a",
+        "z": "f91b44df1f91c91f",
+        "g": "4b0f4470b4d73f44",
         "name": "",
-        "method": "GET",
-        "ret": "txt",
+        "method": "POST",
+        "ret": "obj",
         "paytoqs": "body",
-        "url": "our-server.com/api/v1/device/785421/report",
+        "url": "",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -377,17 +370,20 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 810,
+        "x": 1130,
         "y": 500,
         "wires": [
-            []
+            [
+                "aaf14de934eb9ece",
+                "ae37b45ed5f72113"
+            ]
         ]
     },
     {
-        "id": "ce4197b6d836b33a",
+        "id": "a4cd7baee907e2dd",
         "type": "comment",
-        "z": "d740551e189da6a9",
-        "g": "9ab484eb87b8a27a",
+        "z": "f91b44df1f91c91f",
+        "g": "4b0f4470b4d73f44",
         "name": "Report average moisture procentage every hour",
         "info": "",
         "x": 340,
@@ -395,10 +391,10 @@
         "wires": []
     },
     {
-        "id": "1e84189ce1c84a42",
+        "id": "36b972178810cc08",
         "type": "inject",
-        "z": "d740551e189da6a9",
-        "g": "c1841b9fe3d55fa5",
+        "z": "f91b44df1f91c91f",
+        "g": "5e84fe58b7253d78",
         "name": "inject every hour",
         "props": [
             {
@@ -420,43 +416,15 @@
         "y": 600,
         "wires": [
             [
-                "c297bbdf4972da2d"
+                "f4093cde46dad3ea"
             ]
         ]
     },
     {
-        "id": "ecc261eb45f9358f",
+        "id": "f4093cde46dad3ea",
         "type": "switch",
-        "z": "d740551e189da6a9",
-        "g": "9ab484eb87b8a27a",
-        "name": "",
-        "property": "paired",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "nnull"
-            },
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 350,
-        "y": 400,
-        "wires": [
-            [],
-            [
-                "8ac4512c0dafae3e"
-            ]
-        ]
-    },
-    {
-        "id": "c297bbdf4972da2d",
-        "type": "switch",
-        "z": "d740551e189da6a9",
-        "g": "c1841b9fe3d55fa5",
+        "z": "f91b44df1f91c91f",
+        "g": "5e84fe58b7253d78",
         "name": "",
         "property": "paired",
         "propertyType": "global",
@@ -472,15 +440,15 @@
         "y": 600,
         "wires": [
             [
-                "55dac7c4200fbbd4"
+                "8e9f9762c7e8fb29"
             ]
         ]
     },
     {
-        "id": "55dac7c4200fbbd4",
+        "id": "8e9f9762c7e8fb29",
         "type": "http request",
-        "z": "d740551e189da6a9",
-        "g": "c1841b9fe3d55fa5",
+        "z": "f91b44df1f91c91f",
+        "g": "5e84fe58b7253d78",
         "name": "",
         "method": "GET",
         "ret": "obj",
@@ -497,15 +465,15 @@
         "y": 600,
         "wires": [
             [
-                "20b11c40d3cbad17"
+                "6fe6ec2c0ac23a97"
             ]
         ]
     },
     {
-        "id": "21379252283e0685",
+        "id": "e13ccc0703f0efd1",
         "type": "function",
-        "z": "d740551e189da6a9",
-        "g": "c1841b9fe3d55fa5",
+        "z": "f91b44df1f91c91f",
+        "g": "5e84fe58b7253d78",
         "name": "function 2",
         "func": "const tasks = msg.payload?.tasks || []\n\nflow.set(\"tasks\", tasks)\n\nif(tasks.length > 0)\n    msg.payload = tasks[0];\n\nreturn msg; ",
         "outputs": 1,
@@ -518,15 +486,15 @@
         "y": 600,
         "wires": [
             [
-                "6a2e907d94b10a72"
+                "ba694833ea5ff62d"
             ]
         ]
     },
     {
-        "id": "20b11c40d3cbad17",
+        "id": "6fe6ec2c0ac23a97",
         "type": "json",
-        "z": "d740551e189da6a9",
-        "g": "c1841b9fe3d55fa5",
+        "z": "f91b44df1f91c91f",
+        "g": "5e84fe58b7253d78",
         "name": "",
         "property": "payload",
         "action": "obj",
@@ -535,15 +503,15 @@
         "y": 600,
         "wires": [
             [
-                "21379252283e0685"
+                "e13ccc0703f0efd1"
             ]
         ]
     },
     {
-        "id": "6a2e907d94b10a72",
+        "id": "ba694833ea5ff62d",
         "type": "switch",
-        "z": "d740551e189da6a9",
-        "g": "c1841b9fe3d55fa5",
+        "z": "f91b44df1f91c91f",
+        "g": "5e84fe58b7253d78",
         "name": "parse payload",
         "property": "payload",
         "propertyType": "msg",
@@ -560,172 +528,228 @@
         "x": 180,
         "y": 680,
         "wires": [
-            [
-                "014bfb5245b0cdbd"
-            ]
+            []
         ]
     },
     {
-        "id": "014bfb5245b0cdbd",
+        "id": "505c812762911485",
         "type": "serial request",
-        "z": "d740551e189da6a9",
-        "g": "c1841b9fe3d55fa5",
+        "z": "f91b44df1f91c91f",
+        "g": "5e84fe58b7253d78",
         "name": "",
         "serial": "4aebed7fa574b00d",
-        "x": 390,
+        "x": 370,
         "y": 680,
         "wires": [
             []
         ]
     },
     {
-        "id": "ba21a8e492d2c985",
+        "id": "e596a3b9ade0f5a7",
         "type": "function",
-        "z": "d740551e189da6a9",
-        "g": "53e49670757f2ab3",
+        "z": "f91b44df1f91c91f",
+        "g": "9344ba63619b3c33",
         "name": "Parse Init message",
-        "func": "const deviceID = msg.payload.deviceID;\n\nglobal.set(\"deviceID\", deviceID);\n\nmsg.url = `https://potfriend-cloud.azurewebsites.net/devices/${deviceID}`;\nmsg.payload = \"\";\nreturn msg;",
+        "func": "const deviceID = msg.payload.deviceID;\n\nglobal.set(\"deviceID\", deviceID);\n\nmsg.url = `https://potfriend-backend.onrender.com/devices/${deviceID}`;\nmsg.payload = \"\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
-        "y": 200,
+        "x": 370,
+        "y": 180,
         "wires": [
             [
-                "c754b4abee69819d"
+                "f85695bcf86d9c61"
             ]
         ]
     },
     {
-        "id": "6d22aa3cf548b0c0",
+        "id": "5ff7059934ce5ca9",
         "type": "json",
-        "z": "d740551e189da6a9",
-        "g": "53e49670757f2ab3",
+        "z": "f91b44df1f91c91f",
+        "g": "9344ba63619b3c33",
         "name": "",
         "property": "payload",
         "action": "obj",
         "pretty": false,
         "x": 130,
-        "y": 200,
+        "y": 180,
         "wires": [
             [
-                "ba21a8e492d2c985"
+                "df5cfd968fed5abf"
             ]
         ]
     },
     {
-        "id": "b9c6d1331d85e0d0",
+        "id": "dcd990d19e1f7917",
         "type": "function",
-        "z": "d740551e189da6a9",
-        "g": "53e49670757f2ab3",
-        "name": "Prepare pair URL",
-        "func": "const deviceID = global.get(\"deviceID\");\n\nmsg.url = `https://potfriend-cloud.azurewebsites.net/devices/${deviceID}/pair`;\n\nreturn msg;\n",
+        "z": "f91b44df1f91c91f",
+        "g": "9344ba63619b3c33",
+        "name": "Generate pair request",
+        "func": "const deviceID = global.get(\"deviceID\");\n\nmsg.url = `https://potfriend-backend.onrender.com/devices/${deviceID}/pair`;\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
+        "x": 680,
         "y": 200,
         "wires": [
             [
-                "1807a75c3f0fa13c"
+                "dc0a6be2bf57fb1e"
             ]
         ]
     },
     {
-        "id": "e20039e428a7b05f",
+        "id": "f3b598a5e0fb466f",
         "type": "serial in",
-        "z": "d740551e189da6a9",
-        "d": true,
-        "g": "9ab484eb87b8a27a",
+        "z": "f91b44df1f91c91f",
+        "g": "4b0f4470b4d73f44",
         "name": "IN",
         "serial": "4aebed7fa574b00d",
-        "x": 130,
+        "x": 310,
         "y": 400,
         "wires": [
             [
-                "ecc261eb45f9358f"
+                "cd6cb4f9d29b8e80"
             ]
         ]
     },
     {
-        "id": "f4f529c7dd0f7dc7",
-        "type": "debug",
-        "z": "d740551e189da6a9",
-        "g": "53e49670757f2ab3",
-        "name": "debug 4",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1200,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "51a4e76920b611e0",
-        "type": "debug",
-        "z": "d740551e189da6a9",
-        "g": "53e49670757f2ab3",
-        "name": "debug 5",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 880,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "6e92c224f5a7d0d7",
+        "id": "b3eb380118ebd413",
         "type": "function",
-        "z": "d740551e189da6a9",
-        "g": "53e49670757f2ab3",
+        "z": "f91b44df1f91c91f",
+        "g": "9344ba63619b3c33",
         "name": "Handle set paired",
-        "func": "const newPairedDevice = msg.payload;\n\nconsole.log(newPairedDevice)\n\nconst pairedDevcies = global.get(\"pairedDevices\") ?? [];\n\npairedDevcies.push({\n    device_id: newPairedDevice.device_id,\n    token: newPairedDevice.token\n})\n\nglobal.set(\"pairedDevices\", pairedDevcies)\n\nconsole.log(pairedDevcies);\n\nreturn msg;",
+        "func": "const newPairedDevice = msg.payload;\n\nconst pairedDevcies = global.get(\"Devices\") ?? [];\nconsole.log(pairedDevcies);\npairedDevcies.push({\n    id: newPairedDevice.id,\n    token: \"\",\n    reports: []\n})\n\nglobal.set(\"Devices\", pairedDevcies)\n\nconst pairedConfirmation = {\"targetDeviceID\" : newPairedDevice.id, \"messageType\" : \"pairedSuccessfully\"}\n\nmsg.payload = pairedConfirmation;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 930,
+        "x": 950,
         "y": 60,
         "wires": [
             [
-                "f4f529c7dd0f7dc7"
+                "aa6c62498fbc8d0f"
             ]
         ]
     },
     {
-        "id": "4aebed7fa574b00d",
-        "type": "serial-port",
-        "name": "Hardwario",
-        "serialport": "/dev/tty.usbserial-130",
-        "serialbaud": "115200",
-        "databits": "8",
-        "parity": "none",
-        "stopbits": "1",
-        "waitfor": "",
-        "dtr": "none",
-        "rts": "none",
-        "cts": "none",
-        "dsr": "none",
-        "newline": "\\n",
-        "bin": "false",
-        "out": "char",
-        "addchar": "",
-        "responsetimeout": "10000"
+        "id": "f1a0749154ad4322",
+        "type": "function",
+        "z": "f91b44df1f91c91f",
+        "g": "4b0f4470b4d73f44",
+        "name": " Generate report request",
+        "func": " \nvar msgsToSend = flow.get(\"messagesToSend\");\n\nif(!msgsToSend)\n    flow.set(\"allMessagesSent\", true);\n\nconst msgToSend = msgsToSend.pop();\n\nif(msgsToSend.length == 0)\n    flow.set(\"allMessagesSent\", true);\n\nmsg.url = `https://potfriend-backend.onrender.com/devices/${msgToSend.payload.deviceID}/report`;\n\nconsole.log(msgToSend);\n\nmsg.payload = {\n    measurementType : \"moisture\",\n    measurementValue : msgToSend.payload.value,\n    unit : \"%\"\n}\nconsole.log(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 500,
+        "wires": [
+            [
+                "1b81ba1b185d7620"
+            ]
+        ]
+    },
+    {
+        "id": "8ef6f2e598ce6935",
+        "type": "serial in",
+        "z": "f91b44df1f91c91f",
+        "g": "9344ba63619b3c33",
+        "name": "IN",
+        "serial": "4aebed7fa574b00d",
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "5ff7059934ce5ca9"
+            ]
+        ]
+    },
+    {
+        "id": "df5cfd968fed5abf",
+        "type": "function",
+        "z": "f91b44df1f91c91f",
+        "g": "9344ba63619b3c33",
+        "name": "Check incoming message type",
+        "func": "const {deviceID, messageType} = msg?.payload;\nconsole.log(msg.payload);\nif(messageType != \"init\")\n    return null\n\nif (!deviceID)\n    return null;\n\nconst pairedDevcies = global.get(\"Devices\") ?? [];\n\nconst device = pairedDevcies.find((device) => device.id === deviceID);\n\nif (device)\n    return null;\n    \nglobal.get(deviceID)\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 240,
+        "wires": [
+            [
+                "e596a3b9ade0f5a7"
+            ]
+        ]
+    },
+    {
+        "id": "aa6c62498fbc8d0f",
+        "type": "serial out",
+        "z": "f91b44df1f91c91f",
+        "g": "9344ba63619b3c33",
+        "name": "",
+        "serial": "4aebed7fa574b00d",
+        "x": 1190,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "aaf14de934eb9ece",
+        "type": "switch",
+        "z": "f91b44df1f91c91f",
+        "g": "4b0f4470b4d73f44",
+        "name": "",
+        "property": "allMessagesSent",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 710,
+        "y": 500,
+        "wires": [
+            [
+                "f1a0749154ad4322"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ae37b45ed5f72113",
+        "type": "debug",
+        "z": "f91b44df1f91c91f",
+        "g": "4b0f4470b4d73f44",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1140,
+        "y": 420,
+        "wires": []
     }
 ]
